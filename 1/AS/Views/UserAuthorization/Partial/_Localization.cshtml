@@ -1,0 +1,23 @@
+﻿@* Copyright (c) 1994-2014 Sage Software, Inc.  All rights reserved. *@
+
+@using SecurityGroupsResx = Sage.CA.SBS.ERP.Sage300.AS.Resources.Forms.SecurityGroupsResx;
+@using UsersResx = Sage.CA.SBS.ERP.Sage300.AS.Resources.Forms.UsersResx;
+@using UserAuthorizationResx = Sage.CA.SBS.ERP.Sage300.AS.Resources.Forms.UserAuthorizationResx;
+@using CommonResx = Sage.CA.SBS.ERP.Sage300.Common.Resources.CommonResx;
+@using ASCommonResx = Sage.CA.SBS.ERP.Sage300.AS.Resources.ASCommonResx;
+
+<script type="text/javascript">
+    var userAuthorizationResources = {
+        FinderTitle: '@CommonResx.Select',
+        UsersTitle: '@UsersResx.Entity',
+        MsgAdminAuthorized: '@UserAuthorizationResx.MsgAdminAuthorized',
+        InvalidInput: '@ASCommonResx.InvalidUser',
+        SecurityGroupTitle: '@SecurityGroupsResx.Entity',
+        SecurityGroupRecTitle: '@SecurityGroupsResx.SecGrpRecType',
+        SaveTitle: '@CommonResx.Save',
+        InvalidSecurityGroup: '@CommonResx.RecordNotFoundMessage',
+        BlankUserID: '@CommonResx.CannotBeBlankMessage',
+        UserID: '@UserAuthorizationResx.UserID',
+        UserAuthorization: '@UserAuthorizationResx.Entity'
+    }
+</script>

@@ -1,0 +1,15 @@
+﻿/* Copyright (c) 1994-2014 Sage Software, Inc.  All rights reserved. */
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using Sage.CA.SBS.ERP.Sage300.AS.Models;
+using Sage.CA.SBS.ERP.Sage300.Common.Web;
+
+namespace Sage.CA.SBS.ERP.Sage300.AS.Web.Models
+{
+    public class UserAthorizationsViewModel<T>: ViewModelBase<T> where T: Users, new()
+    {
+    }
+}

@@ -1,0 +1,50 @@
+﻿@* Copyright (c) 1994-2014 Sage Software, Inc.  All rights reserved. *@
+
+@model Sage.CA.SBS.ERP.Sage300.AS.Web.Models.RestartRecordViewModel<Sage.CA.SBS.ERP.Sage300.AS.Models.RestartRecord>
+
+@using RestartRecordResx = Sage.CA.SBS.ERP.Sage300.AS.Resources.Forms.RestartMaintenanceResx
+@using CommonResx = Sage.CA.SBS.ERP.Sage300.Common.Resources.CommonResx
+@using Sage.CA.SBS.ERP.Sage300.Common.Web.HtmlHelperExtension
+@using Sage.CA.SBS.ERP.Sage300.Common.Web.AreaConstants
+@using filter = Sage.CA.SBS.ERP.Sage300.Common.Models
+@using Sage.CA.SBS.ERP.Sage300.Common.Models.Enums
+@using Sage.CA.SBS.ERP.Sage300.AS.Models
+
+<script type="text/javascript">
+    @Html.ConvertToJsVariableUsingNewtonSoft("restartRecordsViewModel", Model);
+
+</script>
+
+@Html.Partial(AdministrativeService.PopUpRestartRecordLocalization)
+<div id="success"></div>
+
+
+
+
+<div id="success"></div>
+<div id="message"></div>
+<div class="container_16">
+    <div class="grid_16 pb10">
+
+       
+        <div id="adminRestMaintain">
+            @if (Model.UserAccess.SecurityType.HasFlag(SecurityType.Inquire))
+            {
+                @Html.Partial(AdministrativeService.PopUpRestartRecordGrid)
+            }
+        </div>
+        <div class="clear-fix"></div>
+        @if (Model.UserAccess.SecurityType.HasFlag(SecurityType.Modify))
+        {
+    <div class="row bor-top">
+        @Html.KoSageButton("btnContinue", null, new { @value = "Continue", @id = "btnContinue", @class = "btn-primary" })
+        @Html.KoSageButton("btnCancel", null, new { @value = CommonResx.Cancel, @id = "btnCancel", @class = "btn-primary" })
+        @Html.KoSageButton("btnRestart", null, new { @value = "Restart", @id = "btnRestart", @class = "btn-primary" })
+        @Html.KoSageButton("btnDelete", null, new { @value = CommonResx.Delete, @id = "btnDelete", @class = "btn-primary" })
+    </div>
+            <div class="clear-fix"></div>
+        }
+    </div>
+</div>
+
+

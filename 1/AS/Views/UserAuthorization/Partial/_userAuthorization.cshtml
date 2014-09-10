@@ -1,0 +1,49 @@
+﻿@* Copyright (c) 1994-2014 Sage Software, Inc.  All rights reserved. *@
+
+@model Sage.CA.SBS.ERP.Sage300.AS.Web.Models.UserAuthorizationViewModel<Sage.CA.SBS.ERP.Sage300.AS.Models.User>
+@using Sage.CA.SBS.ERP.Sage300.Common.Web.HtmlHelperExtension;
+@using Sage.CA.SBS.ERP.Sage300.Common.Web.AreaConstants;
+@using CommonResx = Sage.CA.SBS.ERP.Sage300.Common.Resources.CommonResx;
+@using UserAuthorizationResx = Sage.CA.SBS.ERP.Sage300.AS.Resources.Forms.UserAuthorizationResx;
+
+<script type="text/javascript">
+    @Html.ConvertToJsVariableUsingNewtonSoft("userAuthorizationModel", Model);
+
+</script>
+
+@Html.Partial(AdministrativeService.UserAuthorizationLocalization)
+<div id="success"></div>
+<div class="container_16">
+    <div class="grid_16 pad_bot_1">
+        <div class="mod_title">
+            @Html.SageHeader3Label("entity", UserAuthorizationResx.Entity)
+            @Html.Partial(Core.Menu)
+            <div class="clear-fix"></div>
+        </div>
+        <div id="message"></div>
+        <div class="grid_4 alpha omega">
+            @Html.SageLabel(UserAuthorizationResx.UserID)
+            @Html.KoSageTextBoxFor(model => model.Data.UserID, new { @sagevalue = "Data.UserID", @valueUpdate = "'input'" }, new { @class = "reqField-default txt-upper inpt_go w151", @formatTextbox = "alphaNumeric" })
+
+            @Html.KoSageButton("btnLoadUser", null, new { @id = "btnLoadUser", @class = "icon btn_go" })
+            @Html.KoSageButton("btnFinderUser", new { }, new { @class = "icon btn_search mt7", @id = "btnFinderUser", @tabindex = -1 })
+        </div>
+        <div class="clear-fix"></div>
+        <div class="grid_8 alpha">
+            @Html.SageLabel(UserAuthorizationResx.UserName)
+            @Html.KoSageTextBoxFor(model => model.Data.UserName, new { @value = "Data.UserName" }, new { @class = "reqField-default", @disabled = true })
+        </div>
+        <div class="clear-fix"></div>
+        <div class="mt10">
+            @Html.Partial(AdministrativeService.UserAuthorizationGrid, new Sage.CA.SBS.ERP.Sage300.AS.Models.UserAuthorization())
+        </div>
+        <div class="clear-fix bor-bot pad_top_1">
+        </div>
+        <div class="grid_16 alpha pad_top_03">
+            @Html.KoSageButton("btnSave", null, new { @value = CommonResx.Save, @id = "btnSave", @class = "btn-primary" })
+        </div>
+
+    </div>
+</div>
+
+

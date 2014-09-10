@@ -1,0 +1,21 @@
+﻿@* Copyright (c) 1994-2014 Sage Software, Inc.  All rights reserved. *@
+
+@using Sage.CA.SBS.ERP.Sage300.GL.Models.Enums
+@using GLCommonResx = Sage.CA.SBS.ERP.Sage300.GL.Resources.GLCommonResx
+@using Sage.CA.SBS.ERP.Sage300.Common.Web.HtmlHelperExtension
+@model Sage.CA.SBS.ERP.Sage300.GL.Models.Reports.SortByType
+
+<div class="fild-content pad_top_1">
+    <div class="grid_3 alpha omega">
+        @Html.KoSageRadioButtonFor(model => model.SortBy, (int)SortBy.AccountNo, new { @sagechecked = "Data.SortByType.SortBy" }, new { @id = "optAccount" })
+        @Html.SageLabel(GLCommonResx.AccountNo, new { @class = "mar_rt_1 left" })
+    </div>
+    <div class="grid_3 alpha omega">
+        @Html.KoSageRadioButtonFor(model => model.SortBy, (int)SortBy.Segment, new { @sagechecked = "Data.SortByType.SortBy" }, new { @id = "optSegment" })
+        @Html.SageLabel(GLCommonResx.Segment, new { @class = "mar_rt_1 left" })
+    </div>
+    <div class="grid_5 alpha omega" data-bind="visible:Data.Options.AccountGroupSwitch">
+        @Html.KoSageRadioButtonFor(model => model.SortBy, (int)SortBy.AccountGroup, new { @sagechecked = "Data.SortByType.SortBy" }, new { @id = "optAccountGrp" })
+        @Html.KoSageLabelFor(m => m.SortBy, "", new { @text = "Data.SortByType.AcctGroupCaption" }, new { @text = GLCommonResx.AccountGroup })
+    </div>
+</div>

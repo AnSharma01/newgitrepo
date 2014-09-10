@@ -1,0 +1,108 @@
+﻿@* Copyright (c) 1994-2014 Sage Software, Inc.  All rights reserved. *@
+
+@using Sage.CA.SBS.ERP.Sage300.Common.Web.HtmlHelperExtension
+@using CommonResx = Sage.CA.SBS.ERP.Sage300.Common.Resources.CommonResx
+@using CommonModels = Sage.CA.SBS.ERP.Sage300.Common.Models
+@using Auth = Sage.CA.SBS.ERP.Sage300.Common.Models.Authentication
+@using filter = Sage.CA.SBS.ERP.Sage300.Common.Models
+
+<!DOCTYPE html>
+
+@{
+    Page.Title = @CommonResx.Title;
+}
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@Page.Title</title>
+    @Styles.Render("~/Content/lessCss")
+    @Scripts.Render("~/bundles/modernizr")
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments);
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g;
+            m.parentNode.insertBefore(a, m);
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-47089329-1', 'sagenephos.com');
+        ga('send', 'pageview');
+    </script>
+</head>
+<body>
+    <div id="ajaxSpinner" class="ajaxSpinner">
+        <span class="sage_loading"></span>
+    </div>
+    @Html.Partial("~/Areas/GL/Views/Shared/Partials/_Localization.cshtml")
+    <div id="antiforgerytoken_holder">
+        @Html.AntiForgeryToken()
+    </div>
+    @{CommonModels.Context context = ((CommonModels.Context)HttpContext.Current.Items["Context"]);}
+    @if (@context != null)
+    {
+        @Html.Hidden("ContextToken", context.ContextToken)
+    }
+    @Html.SageUrl(new Dictionary<string, object>() { { "id", "hdnUrl" }, { "name", "hdnUrl" } })
+    @Html.SetClickJackFix()
+    <div class="wraper">
+        @RenderBody()
+    </div>
+
+    <div id="informationDialog" style="display: none;">
+        <ul id="infoSuccess" style="display: none;"></ul>
+        <div id="infoWarningsBlock" style="display: none;">
+            <div id="infoWarningsHeader" class="header2">
+                <h4>Warnings/Errors</h4>
+            </div>
+            <ul id="infoWarnings" class="colRed"></ul>
+        </div>
+    </div>
+    <div id="confirmDialog" style="display: none; padding-top: 20px; padding-left: 20px">
+        <div id="confirmDialogMessage">Do you want to save the changes?</div>
+    </div>
+
+    <script id="delete-confirmation" type="text/x-kendo-template">
+        <div class="fild_set">
+            <div class="fild-title delete-message" id="del-message">
+                <div id="title-text" />
+            </div>
+            <div class="fild-content">
+                <div id="body-text" />
+
+                <div class="modelBox_controlls">
+
+                    <button type="button" class="btn-secondary mar_lef_2 delete-cancel">No</button>
+                    <button type="button" class="btn-primary delete-confirm">Yes</button>
+                </div>
+            </div>
+        </div>
+    </script>
+
+    <script id="message-dialog" type="text/x-kendo-template">
+        <div class="fild_set">
+            <div class="fild-title delete-message" id="messagedialog">
+                <div id="title-text" />
+            </div>
+            <div class="fild-content">
+                <div id="body-text" />
+
+                <div class="modelBox_controlls">
+                    <button type="button" class="btn-primary delete-confirm">Ok</button>
+                </div>
+            </div>
+        </div>
+    </script>
+    <div id="exportImportDialog"></div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/kendo")
+    @Scripts.Render("~/bundles/knockout")
+    @Scripts.Render("~/bundles/ajaxQ")
+    @Scripts.Render("~/bundles/core")
+    @Scripts.Render("~/bundles/shared")
+    @RenderSection("scripts", required: false)
+</body>
+
+</html>

@@ -1,0 +1,11 @@
+﻿@* Copyright (c) 1994-2014 Sage Software, Inc.  All rights reserved. *@
+
+@using Sage.CA.SBS.ERP.Sage300.GL.Models.Enums
+@using GLCommonResx = Sage.CA.SBS.ERP.Sage300.GL.Resources.GLCommonResx
+@using Sage.CA.SBS.ERP.Sage300.Common.Web.HtmlHelperExtension
+@model Sage.CA.SBS.ERP.Sage300.GL.Models.Reports.CurrencyTypes
+    
+<div class="grid_4 alpha">
+    @Html.SageLabelFor(model => model.Currency)
+    @Html.KoSageDropDownList("Data_Currency", new { @options = "CurrencyType", @value = "Data.CurrencyTypes.Currency", @optionsText = "'Text'", @optionsValue = "'Value'" }, new { @id = "Data_Currency" })
+</div>

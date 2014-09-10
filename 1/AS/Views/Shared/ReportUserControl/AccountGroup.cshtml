@@ -1,0 +1,11 @@
+﻿@* Copyright (c) 1994-2014 Sage Software, Inc.  All rights reserved. *@
+
+@using Sage.CA.SBS.ERP.Sage300.GL.Models.Enums
+@using GLCommonResx = Sage.CA.SBS.ERP.Sage300.GL.Resources.GLCommonResx
+@using Sage.CA.SBS.ERP.Sage300.Common.Web.HtmlHelperExtension
+@model Sage.CA.SBS.ERP.Sage300.GL.Models.Reports.AccountGroup
+
+<div class="grid_6 alpha" data-bind="visible:Data.Options.AccountGroupSwitch">
+    @Html.KoSageCheckBoxFor(model => model.SelectAccountGroups, new { @sagechecked = "Data.SortAccountGroup.SelectAccountGroups" }, new { @id = "chkSortAcctGrp" })
+    @Html.SageLabelFor(model => model.SelectAccountGroups, new { @class = "mar_rt_1 left" })
+</div>

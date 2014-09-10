@@ -1,0 +1,15 @@
+﻿@* Copyright (c) 1994-2014 Sage Software, Inc.  All rights reserved. *@
+
+@using Sage.CA.SBS.ERP.Sage300.Common.Web.AreaConstants
+
+@using (Html.BeginForm(null, null, FormMethod.Post, new { Id = "securityGroupForm" }))
+{
+    @Html.Partial(AdministrativeService.SecurityGroup)
+
+    @Html.Partial(AdministrativeService.SecurityGroupLocalization)
+}
+
+@section Scripts{
+    @Scripts.Render("~/bundles/core")
+    @Scripts.Render("~/bundles/SecurityGroup")
+}

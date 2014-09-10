@@ -1,0 +1,13 @@
+﻿@* Copyright (c) 1994-2014 Sage Software, Inc.  All rights reserved. *@
+
+@using Sage.CA.SBS.ERP.Sage300.Common.Web.AreaConstants
+
+@using (Html.BeginForm(null, null, FormMethod.Post, new { Id = "frmUserAuthorization" }))
+{
+    @Html.Partial(AdministrativeService.UserAuthorization)
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/core")
+    @Scripts.Render("~/bundles/UserAuthorization")
+}

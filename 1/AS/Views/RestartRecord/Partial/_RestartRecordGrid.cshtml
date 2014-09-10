@@ -1,0 +1,21 @@
+﻿@* Copyright (c) 1994-2014 Sage Software, Inc.  All rights reserved. *@
+
+@using RestartRecordResx = Sage.CA.SBS.ERP.Sage300.AS.Resources.Forms.RestartMaintenanceResx;
+@using Sage.CA.SBS.ERP.Sage300.Common.Web.HtmlHelperExtension
+@using Sage.CA.SBS.ERP.Sage300.AS.Models
+@model Sage.CA.SBS.ERP.Sage300.AS.Web.Models.RestartRecordViewModel<RestartRecord>
+
+<script>
+    var restartRecordsGridColumns = {
+        headerDatabaseID: '@Html.SageGridHeaderFor(model => model.Data.DatabaseID)',
+        headerRestartNumber: '@Html.SageGridHeaderFor(model => model.Data.RestartNumber)',
+        headerProgramName: '@Html.SageGridHeaderFor(model => model.Data.ProgramName)',
+        headerUserID: '@Html.SageGridHeaderFor(model => model.Data.UserID)',
+        headerDate: '@Html.SageGridHeaderFor(model => model.Data.Date)',
+        headerTime: '@Html.SageGridHeaderFor(model => model.Data.Time)',
+        headerMessage: '@Html.SageGridHeaderFor(model => model.Data.Message)'        
+    };
+
+</script>
+
+@Html.KoKendoGrid("RestartRecordGrid", "restartRecordsUI.restartRecordsModel.DataList", "RestartNumber", "restartRecordsGridUtility.restartRecordsConfig", true)

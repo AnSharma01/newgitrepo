@@ -1,0 +1,83 @@
+﻿@* Copyright (c) 1994-2014 Sage Software, Inc.  All rights reserved. *@
+
+@model Sage.CA.SBS.ERP.Sage300.AS.Web.Models.SecurityGroupViewModel<Sage.CA.SBS.ERP.Sage300.AS.Models.SecurityGroup>
+@using Sage.CA.SBS.ERP.Sage300.Common.Web.HtmlHelperExtension
+@using Sage.CA.SBS.ERP.Sage300.Common.Web.AreaConstants;
+@using SecurityGroupsResx = Sage.CA.SBS.ERP.Sage300.AS.Resources.Forms.SecurityGroupsResx
+@using CommonResx = Sage.CA.SBS.ERP.Sage300.Common.Resources.CommonResx
+
+<script type="text/javascript">
+    @Html.ConvertToJsVariableUsingNewtonSoft("securityGroupViewModel", Model);
+
+    var secAccessGridColumns = {
+        headerResourceDesc: '@Html.SageGridHeaderFor(model => model.Data.ApplicationSecurityResources.Items.ToList()[0].ResourceDescription)',
+        headerResourceId: '@Html.SageGridHeaderFor(model => model.Data.ResourceId)',
+    };
+
+</script>
+<div id="success"></div>
+
+<div class="container_16">
+    <div class="grid_16 pad_bot_1">
+        <div class="mod_title ">
+            @Html.SageHeader3Label("labelSecurityGroups", SecurityGroupsResx.Entity)
+
+            <div class="top-buttons">
+                @Html.KoSageButton("btnNew", null, new { @id = "btnNew", @class = "btn-primary", @value = CommonResx.New })
+            </div>
+            @Html.Partial(Core.Menu)
+
+        </div>
+        <div id="message"></div>
+        <div class="grid_16 requiredWrapperTop alpha omega clearfix">
+            @Html.SageLabel(CommonResx.RequiredLegend, new { @class = "required-icon right" })
+        </div>
+
+        <div class="grid_10 alpha omega">
+
+            @Html.SageLabel(SecurityGroupsResx.LblAppCap)
+            @Html.KoSageDropDownList("Data_ActiveApplication", new { @options = "Application", @value = "Data.ActiveApplication.AppNameWithoutVersion", @optionsText = "'Text'", @optionsValue = "'Value'" }, new { @id = "Data_ActiveApplication" })
+
+
+            <div class="clear-fix"></div>
+            <div class="grid_4 alpha omega">
+
+                @Html.SageLabel(SecurityGroupsResx.SecurityGroupID, new { @class = "required" })
+
+                @Html.KoSageTextBoxFor(m => m.Data.GroupId, new { @sagevalue = "Data.GroupId", @valueUpdate = "'input'" }, new { @maxlength = "8", @class = "txt-upper inpt_go w151", @formatTextbox = "alphaNumeric" })
+                @Html.SageButton("btnGo", new { @id = "btnGo", @class = "icon btn_go", @tabindex = "-1" })
+                @Html.ValidationMessageFor(m => m.Data.GroupId)
+            </div>
+            <div class="grid_1 alpha pad_top_2 mlm40">
+
+                @Html.SageButton("btnGroupIdFinder", new { @id = "btnGroupIdFinder", @class = "icon btn_search", @tabindex = "-1" })
+            </div>
+        </div>
+        <div class="clear-fix"></div>
+        <div class="grid_10 alpha">
+
+            @Html.SageLabel(SecurityGroupsResx.SecurityGroupDesc, new { @class = "required" })
+
+            @Html.KoSageTextBoxFor(m => m.Data.GroupDescription, new { @value = "Data.GroupDescription", @valueUpdate = "'input'" }, new { @class = "required", @maxlength = "60" })
+            @Html.ValidationMessageFor(m => m.Data.GroupDescription)
+        </div>
+        <div class="clear-fix"></div>
+
+        <div class=" grid_16 alpha omega mt10">
+            @Html.KoKendoGrid("SecurityAccessGrid", "securityGroupUI.securityGroupModel.Data.ApplicationSecurityResources.Items", "ProgramID", "SecurityAccessUIGrid.securityGroupConfig", true)
+        </div>
+        <div class="clear-fix"></div>
+
+        <div class="grid_16 alpha bor-top mar_top_2">
+
+            @Html.KoSageButton("btnSave", null, new { @id = "btnSave", @value = CommonResx.Save, @class = "btn-primary" })
+
+            @Html.KoSageButton("btnDelete", null, new { @id = "btnDelete", @value = CommonResx.Delete, @class = "btn-primary" })
+
+        </div>
+    </div>
+</div>
+
+
+
+
