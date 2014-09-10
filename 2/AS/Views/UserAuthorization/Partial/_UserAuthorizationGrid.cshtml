@@ -1,0 +1,21 @@
+﻿@* Copyright (c) 1994-2014 Sage Software, Inc.  All rights reserved. *@
+
+@using Sage.CA.SBS.ERP.Sage300.Common.Web.HtmlHelperExtension
+@model Sage.CA.SBS.ERP.Sage300.AS.Models.UserAuthorization
+
+<script>
+    var userAuthorizationGridColumns = {
+        headerApplication: '@Html.SageGridHeaderFor(model => model.ProgramName)',
+        headerGroupId: '@Html.SageGridHeaderFor(model => model.GroupID)',
+        headerGroupDescription: '@Html.SageGridHeaderFor(model => model.GroupDescription)'
+    };
+
+    var userAuthorizationGridFields = {
+        txtGroupIdField: '<div class="edit-container"><div class="edit-cell inpt-text">@Html.SageTextBoxFor(model => model.GroupID, new { @id = "txtGroupIdField", @class = "grid_inpt txt-upper", @formatTextbox = "alphaNumeric", @maxlength = "8" })</div>',
+        finderGroupIdField: '<div class="edit-cell inpt-finder"> @Html.SageButton("btnGroupIdFinder", new {@id = "btnGroupIdFinder", @class = "icon btn_search", @tabindex = "-1"})</div></div>'
+
+    };
+
+</script>
+
+@Html.KoKendoGrid("UserAuthorizationGrid", "userAuthorizationUI.userAuthorizationModel.Data.UserAuthorizations.Items", "ProgramID", "userAuthorizationUIGrid.entryDetailsConfig", true)

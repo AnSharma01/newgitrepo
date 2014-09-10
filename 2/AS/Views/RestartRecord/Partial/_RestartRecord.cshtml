@@ -1,0 +1,48 @@
+﻿@* Copyright (c) 1994-2014 Sage Software, Inc.  All rights reserved. *@
+
+@model Sage.CA.SBS.ERP.Sage300.AS.Web.Models.RestartRecordViewModel<Sage.CA.SBS.ERP.Sage300.AS.Models.RestartRecord>
+
+@using RestartRecordResx = Sage.CA.SBS.ERP.Sage300.AS.Resources.Forms.RestartMaintenanceResx
+@using CommonResx = Sage.CA.SBS.ERP.Sage300.Common.Resources.CommonResx
+@using Sage.CA.SBS.ERP.Sage300.Common.Web.HtmlHelperExtension
+@using Sage.CA.SBS.ERP.Sage300.Common.Web.AreaConstants
+@using filter = Sage.CA.SBS.ERP.Sage300.Common.Models
+@using Sage.CA.SBS.ERP.Sage300.Common.Models.Enums
+@using Sage.CA.SBS.ERP.Sage300.AS.Models
+
+<script type="text/javascript">
+    @Html.ConvertToJsVariableUsingNewtonSoft("restartRecordsViewModel", Model);
+
+</script>
+
+@Html.Partial(AdministrativeService.RestartRecordLocalization)
+<div id="success"></div>
+
+
+
+
+<div id="success"></div>
+<div id="message"></div>
+<div class="container_16">
+    <div class="grid_16 pb10">
+        <div class="mod_title clearfix">
+            @Html.SageHeader3Label("restartRecordsHeader", @RestartRecordResx.Entity)
+        </div>
+        <div class="clear-fix mt20"></div>
+
+        <div class="toolsBar">
+            @if (Model.UserAccess.SecurityType.HasFlag(SecurityType.Delete))
+            {
+                @Html.KoSageButton("btnDelete", new {@disable = "DeleteDisable"}, new {@value = CommonResx.Delete, @id = "btnDelete", @class = "toolBar_icon delete_icon", @disabled = false})
+            }
+            <div class="clear-fix"></div>
+        </div>
+        <div id="adminRestMaintain">
+            @if (Model.UserAccess.SecurityType.HasFlag(SecurityType.Inquire))
+            {
+                @Html.Partial(AdministrativeService.RestartRecordGrid)
+            }
+        </div>
+    </div>
+</div>
+

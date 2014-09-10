@@ -1,0 +1,371 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F56F5C40-0982-40AC-8FEE-63C8F606E341}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Sage.CA.SBS.ERP.Sage300.AS.Web</RootNamespace>
+    <AssemblyName>Sage.CA.SBS.ERP.Sage300.AS.Web</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\..\..\..\Solutions\Dev\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Sage.CA.SBS.ERP.Sage300.AS.Web.XML</DocumentationFile>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime">
+      <HintPath>..\..\..\..\Solutions\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\..\..\..\Solutions\packages\EntityFramework.6.0.2\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\..\..\..\Solutions\packages\EntityFramework.6.0.2\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Practices.Unity, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Solutions\packages\Unity.3.0.1304.1\lib\Net45\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Solutions\packages\Microsoft.AspNet.Mvc.5.1.0\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\..\..\..\Solutions\packages\Microsoft.AspNet.Web.Optimization.1.1.2\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\..\..\..\Solutions\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="WebGrease">
+      <HintPath>..\..\..\..\Solutions\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="WebMatrix.Data, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Solutions\packages\Microsoft.AspNet.WebPages.Data.3.1.2\lib\net45\WebMatrix.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="WebMatrix.WebData, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Solutions\packages\Microsoft.AspNet.WebPages.WebData.3.1.2\lib\net45\WebMatrix.WebData.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ASAreaRegistration.cs" />
+    <Compile Include="BundleRegistration.cs" />
+    <Compile Include="Constants\Constant.cs" />
+    <Compile Include="Controllers\DataIntegrityController.cs" />
+    <Compile Include="Controllers\DataIntegrityControllerInternal.cs" />
+    <Compile Include="Controllers\DataIntegrityReportController.cs" />
+    <Compile Include="Controllers\DataIntegrityReportControllerControllerInternal.cs" />
+    <Compile Include="Controllers\Finder\FindSecurityGroupControllerInternal.cs" />
+    <Compile Include="Controllers\Finder\FindUserControllerInternal.cs" />
+    <Compile Include="Controllers\PopupRestartRecordController.cs" />
+    <Compile Include="Controllers\RestartRecordController.cs" />
+    <Compile Include="Controllers\PopupRestartRecordControllerInternal.cs" />
+    <Compile Include="Controllers\RestartRecordControllerInternal.cs" />
+    <Compile Include="Controllers\SecurityGroupController.cs" />
+    <Compile Include="Controllers\SecurityGroupControllerInternal.cs" />
+    <Compile Include="Controllers\SecurityGroupSystemControllerInternal.cs" />
+    <Compile Include="Controllers\UserAthorizationSystemControllerInternal.cs" />
+    <Compile Include="Controllers\UserAuthorizationController.cs" />
+    <Compile Include="Controllers\UserAuthorizationControllerInternal.cs" />
+    <Compile Include="Models\DataIntegrityReportViewModel.cs" />
+    <Compile Include="Models\DataIntegrityViewModel.cs" />
+    <Compile Include="Models\RestartRecordViewModel.cs" />
+    <Compile Include="Models\SecurityGroupViewModel.cs" />
+    <Compile Include="Models\UserAuthorizationViewModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\..\Web.config">
+      <Link>Web.config</Link>
+    </Content>
+    <Content Include="Scripts\DataIntegrityReport\Sage.CA.SBS.ERP.Sage300.AS.DataIntegrityReportBehaviour.js" />
+    <Content Include="Scripts\DataIntegrityReport\Sage.CA.SBS.ERP.Sage300.AS.DataIntegrityReportKoExtn.js" />
+    <Content Include="Scripts\DataIntegrityReport\Sage.CA.SBS.ERP.Sage300.AS.DataIntegrityReportRepository.js" />
+    <Content Include="Scripts\DataIntegrity\Sage.CA.SBS.ERP.Sage300.AS.DataIntegrityBehaviour.js" />
+    <Content Include="Scripts\DataIntegrity\Sage.CA.SBS.ERP.Sage300.AS.DataIntegrityKoExtn.js" />
+    <Content Include="Scripts\DataIntegrity\Sage.CA.SBS.ERP.Sage300.AS.DataIntegrityRepository.js" />
+    <Content Include="Scripts\PopupRestartRecord\Sage.CA.SBS.ERP.Sage300.AS.RestartRecordBehaviour.js" />
+    <Content Include="Scripts\PopupRestartRecord\Sage.CA.SBS.ERP.Sage300.AS.RestartRecordKoExtn.js" />
+    <Content Include="Scripts\PopupRestartRecord\Sage.CA.SBS.ERP.Sage300.AS.RestartRecordRepository.js" />
+    <Content Include="Scripts\RestartRecord\Sage.CA.SBS.ERP.Sage300.AS.RestartRecordBehaviour.js" />
+    <Content Include="Scripts\RestartRecord\Sage.CA.SBS.ERP.Sage300.AS.RestartRecordKoExtn.js" />
+    <Content Include="Scripts\RestartRecord\Sage.CA.SBS.ERP.Sage300.AS.RestartRecordRepository.js" />
+    <Content Include="Scripts\SecurityGroup\Sage.CA.SBS.ERP.Sage300.AS.SecurityGroupBehaviour.js" />
+    <Content Include="Scripts\SecurityGroup\Sage.CA.SBS.ERP.Sage300.AS.SecurityGroupKoExtn.js" />
+    <Content Include="Scripts\SecurityGroup\Sage.CA.SBS.ERP.Sage300.AS.SecurityGroupRepository.js" />
+    <Content Include="Scripts\UserAuthorization\Sage.CA.SBS.ERP.Sage300.AS.UserAuthorizationBehaviour.js" />
+    <Content Include="Scripts\UserAuthorization\Sage.CA.SBS.ERP.Sage300.AS.UserAuthorizationKoExtn.js" />
+    <Content Include="Scripts\UserAuthorization\Sage.CA.SBS.ERP.Sage300.AS.UserAuthorizationRepository.js" />
+    <Content Include="Views\Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\UserAuthorization\Partial\_UserAuthorizationGrid.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\_Layout.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\Error.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\Partials\ReportLocalization.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\ReportUserControl\AccountGroup.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\ReportUserControl\Currency.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\ReportUserControl\Include.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\ReportUserControl\OptionalFieldGrid.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\ReportUserControl\PaperSize.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\ReportUserControl\Segment.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\ReportUserControl\SegmentGrid.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\ReportUserControl\SortAccountGroup.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\ReportUserControl\SortBy.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\ReportUserControl\TransactionOptionalFieldGrid.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\_ViewStart.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\SecurityGroup\Partials\_Localization.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\SecurityGroup\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ApplicationInsights.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\SecurityGroup\Partials\_SecurityGroup.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\UserAuthorization\Index.cshtml" />
+    <Content Include="Views\UserAuthorization\Partial\_Localization.cshtml" />
+    <Content Include="Views\UserAuthorization\Partial\_UserAuthorization.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\AS\Sage.CA.SBS.ERP.Sage300.AS.BusinessRepository\Sage.CA.SBS.ERP.Sage300.AS.BusinessRepository.csproj">
+      <Project>{7f3f7d36-d5b8-4638-abc1-48c6eb48ce17}</Project>
+      <Name>Sage.CA.SBS.ERP.Sage300.AS.BusinessRepository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\AS\Sage.CA.SBS.ERP.Sage300.AS.Interfaces\Sage.CA.SBS.ERP.Sage300.AS.Interfaces.csproj">
+      <Project>{2fbdef26-5a0e-43c9-87e7-2157cec9c815}</Project>
+      <Name>Sage.CA.SBS.ERP.Sage300.AS.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\AS\Sage.CA.SBS.ERP.Sage300.AS.Models\Sage.CA.SBS.ERP.Sage300.AS.Models.csproj">
+      <Project>{a429db2b-52bf-458e-82b6-0ab13d2cffd3}</Project>
+      <Name>Sage.CA.SBS.ERP.Sage300.AS.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\AS\Sage.CA.SBS.ERP.Sage300.AS.Resources\Sage.CA.SBS.ERP.Sage300.AS.Resources.csproj">
+      <Project>{5750ac42-09f9-455e-bcdf-3fed188e9277}</Project>
+      <Name>Sage.CA.SBS.ERP.Sage300.AS.Resources</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\AS\Sage.CA.SBS.ERP.Sage300.AS.Services\Sage.CA.SBS.ERP.Sage300.AS.Services.csproj">
+      <Project>{19371b1f-6037-4bd0-97b0-bfcbdbb61fa5}</Project>
+      <Name>Sage.CA.SBS.ERP.Sage300.AS.Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Common\Sage.CA.SBS.ERP.Sage300.Common.BusinessRepository\Sage.CA.SBS.ERP.Sage300.Common.BusinessRepository.csproj">
+      <Project>{266375de-affe-47e2-8ad2-d34b018e91db}</Project>
+      <Name>Sage.CA.SBS.ERP.Sage300.Common.BusinessRepository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Common\Sage.CA.SBS.ERP.Sage300.Common.Exceptions\Sage.CA.SBS.ERP.Sage300.Common.Exceptions.csproj">
+      <Project>{7bf38564-09a6-4943-8249-d0b2a3e04516}</Project>
+      <Name>Sage.CA.SBS.ERP.Sage300.Common.Exceptions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Common\Sage.CA.SBS.ERP.Sage300.Common.Interfaces\Sage.CA.SBS.ERP.Sage300.Common.Interfaces.csproj">
+      <Project>{2df9d920-e05a-44fe-91c7-4fce7b3a2b28}</Project>
+      <Name>Sage.CA.SBS.ERP.Sage300.Common.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Common\Sage.CA.SBS.ERP.Sage300.Common.Models\Sage.CA.SBS.ERP.Sage300.Common.Models.csproj">
+      <Project>{74ba53c3-eb09-4226-9985-bad7306db937}</Project>
+      <Name>Sage.CA.SBS.ERP.Sage300.Common.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Common\Sage.CA.SBS.ERP.Sage300.Common.Resources\Sage.CA.SBS.ERP.Sage300.Common.Resources.csproj">
+      <Project>{4bb55006-cf24-43b5-800c-3f9a4685be9e}</Project>
+      <Name>Sage.CA.SBS.ERP.Sage300.Common.Resources</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Common\Sage.CA.SBS.ERP.Sage300.Common.Services\Sage.CA.SBS.ERP.Sage300.Common.Services.csproj">
+      <Project>{c5955f5c-27c8-49e2-9035-b30eea68786d}</Project>
+      <Name>Sage.CA.SBS.ERP.Sage300.Common.Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Common\Sage.CA.SBS.ERP.Sage300.Common.Utilities\Sage.CA.SBS.ERP.Sage300.Common.Utilities.csproj">
+      <Project>{9ce25370-dc66-4d61-87b4-aed9a3dc7bd4}</Project>
+      <Name>Sage.CA.SBS.ERP.Sage300.Common.Utilities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Common\Sage.CA.SBS.ERP.Sage300.Common.Web\Sage.CA.SBS.ERP.Sage300.Common.Web.csproj">
+      <Project>{7e1a2f26-8e5c-4e72-890c-6d72e535db7e}</Project>
+      <Name>Sage.CA.SBS.ERP.Sage300.Common.Web</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\RestartRecord\Index.cshtml" />
+    <Content Include="Views\RestartRecord\Partial\_Localization.cshtml" />
+    <Content Include="Views\RestartRecord\Partial\_RestartRecordGrid.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\RestartRecord\Partial\_RestartRecord.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\PopupRestartRecord\Partial\_Localization.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\PopupRestartRecord\Partial\_RestartRecord.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\PopupRestartRecord\Partial\_RestartRecordGrid.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\PopupRestartRecord\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\DataIntegrity\Index.cshtml" />
+    <Content Include="Views\DataIntegrity\_Localization.cshtml" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>61358</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:61358/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
+  <PropertyGroup>
+    <PostBuildEvent>
+      Call "$(SolutionDir)\..\..\Tools\LibraryConfigTool.exe"  /projectFolder:$(TargetDir)  /projectName:$(TargetName) /solutionFolder:$(SolutionDir)
+      Call "$(SolutionDir)\..\..\Tools\MergeContentToWebProject.exe"  /area:"AS"  /projectfolder:"$(ProjectDir) " /projectfile:"$(ProjectFileName) " /websolutionfolder:"$(SolutionDir)\..\..\Projects\Sage.CA.SBS.ERP.Sage300.Web " /webprojectfile:"Sage.CA.SBS.ERP.Sage300.Web.csproj"
+    </PostBuildEvent>
+  </PropertyGroup>
+  <Import Project="..\..\..\..\Solutions\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets" Condition="Exists('..\..\..\..\Solutions\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" />
+  <Target Name="EnsureBclBuildImported" BeforeTargets="BeforeBuild" Condition="'$(BclBuildImported)' == ''">
+    <Error Condition="!Exists('..\..\..\..\Solutions\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=317567." HelpKeyword="BCLBUILD2001" />
+    <Error Condition="Exists('..\..\..\..\Solutions\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="The build restored NuGet packages. Build the project again to include these packages in the build. For more information, see http://go.microsoft.com/fwlink/?LinkID=317568." HelpKeyword="BCLBUILD2002" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

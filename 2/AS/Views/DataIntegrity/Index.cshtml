@@ -1,0 +1,125 @@
+﻿@* Copyright (c) 1994-2014 Sage Software, Inc.  All rights reserved. *@
+@using Sage.CA.SBS.ERP.Sage300.AS.Models
+@using Sage.CA.SBS.ERP.Sage300.Common.Web.Models.Process
+@model Sage.CA.SBS.ERP.Sage300.AS.Web.Models.DataIntegrityViewModel<DataIntegrity>
+@using Sage.CA.SBS.ERP.Sage300.Common.Web.HtmlHelperExtension
+@using DataIntegrityResx = Sage.CA.SBS.ERP.Sage300.AS.Resources.Forms.DataIntegrityResx
+@using CommonResx = Sage.CA.SBS.ERP.Sage300.Common.Resources.CommonResx
+@using Sage.CA.SBS.ERP.Sage300.Common.Web.HtmlHelperExtension
+@using Sage.CA.SBS.ERP.Sage300.Common.Web.AreaConstants
+@using Sage.CA.SBS.ERP.Sage300.Common.Models.Enums
+
+<script type="text/javascript">
+    @Html.ConvertToJsVariableUsingNewtonSoft("dataIntegrityViewModel", Model);
+</script>
+
+@using (@Html.BeginForm(null, null, FormMethod.Post, new { id = "dataIntegrityForm" }))
+{
+    @Html.Hidden("GetUrl", Url.Action("Get"))
+    @Html.Hidden("ProcessUrl", Url.Action("Process"))
+    @Html.Hidden("ProgressUrl", Url.Action("Progress"))
+    @Html.Hidden("CancelUrl", Url.Action("Cancel"))
+    <div class="container_16">
+
+        <div class="mod_title">
+            @*<h3>Data Integrity</h3>*@
+            @Html.SageHeader3Label("labelDataIntegrity", DataIntegrityResx.Entity)
+            <div class="clear-fix"></div>
+        </div>
+        @Html.Partial(Core.Menu)
+
+        <div class="mult-selectList">
+            @*<p class="pad-b-ten">Available Applications</p>*@
+            <p class="multi-SelectTitle"> @Html.SageLabel(DataIntegrityResx.LblAvailAppsCap)</p>
+            @*@Html.KoSageDropDownList("fromDataIntegrityList", new { @options = "Data.DataIntegrityList", @disable = "IsDisable", @selectedOptions = "DataIntegritySelectedItems", @optionsText = "" }, new { @id = "DataIntegrityList", @disabled = true, @class = "multiList mar_top_06", @size = "11" })*@
+
+            @Html.KoSageListView("fromDataIntegrityList", "ProgramName")
+
+        </div>
+            
+        <div class="multi-selectBox-controlls">
+            @*<input class="btn_meltiList includeAll" type="button" value="Include All">
+            <input class="btn_meltiList include" type="button" value="Include">
+            <input class="btn_meltiList exclude" type="button" value="Exclude">
+            <input class="btn_meltiList excludeAll" type="button" value="Exclude All">*@
+            @Html.KoSageButton("btnInclude", new { }, new { @id = "btnInclude", @class = "btn_meltiList include", @value = DataIntegrityResx.BtnIncludeCap })
+            @Html.KoSageButton("btnExclude", new { }, new { @id = "btnExclude", @class = "btn_meltiList exclude", @value = DataIntegrityResx.BtnExcludeCap })
+            @Html.KoSageButton("btnIncludeAll", new { }, new { @id = "btnIncludeAll", @class = "btn_meltiList include", @value = DataIntegrityResx.BtnAllCap })
+            @Html.KoSageButton("btnExcludeAll", new { }, new { @id = "btnExcludeAll", @class = "btn_meltiList exclude", @value = DataIntegrityResx.BtnExcludeAll })
+        </div>
+        <div class="mult-selectList">
+            @*<p class="pad-b-ten">Check Applications</p>*@
+            <p class="multi-SelectTitle"> @Html.SageLabel(DataIntegrityResx.LblCheckAppsCap)</p>
+            @*@Html.KoSageDropDownList("toDataIntegrityList", new { @options = "Data.SelectedApplication", @disable = "IsDisable", @selectedOptions = "SelectedDataIntegritySelectedItems", @optionsText = "'SegmentDescription'" }, new { @id = "toDataIntegrityList", @class = "multiList mar_top_06", @disabled = true, @size = "11" })*@
+            @Html.KoSageListView("toDataIntegrityList", "ProgramName")
+
+            @*<ul class="select-list mar_top_06" id="GlClick"></ul>*@
+
+        </div>
+        <div class="clear-fix"></div>
+        <div class="grid_4 push_10 alpha mlm20 mt10">
+            @*<button type="button" class="btn-secondary btn-sec" disabled>Application Options...</button>*@
+            @*@Html.KoSageButton("btnApplicationOption",  new { @id = "btnApplicationOption", @class = "btn-secondary btn-sec", @value = DataIntegrityResx.BtnAppOptionsCap})*@
+            @Html.KoSageButton("btnApplicationOption", new { }, new { @id = "btnApplicationOption", @class = "btn-secondary btn-sec", @value = DataIntegrityResx.BtnAppOptionsCap })
+        </div>
+        <div class="grid_3 push_9 mt17 alpha ml7">
+           
+            @Html.KoSageCheckBoxFor(model => model.Data.IsFixMinorIssuesCheck, new { @sagechecked = "Data.IsFixMinorIssuesCheck"} )
+            @*<label class="chekLable">Fix Minor Errors</label>*@
+            @Html.SageLabel(DataIntegrityResx.LblFixMinorErrors)
+
+                
+
+        </div>
+        <div class="clear-fix"></div>
+
+        <div class="grid_16 bor-top mar_top_2 alpha">
+            @*<button type="button" class="btn-primary">Check...</button>*@
+            @*@Html.KoSageButton("btnCheckOption", new { @id = "btnCheckOption", @class = "btn-primary", @value = DataIntegrityResx.BtnCheckCap })*@
+            @Html.KoSageButton("btnCheckOption", new { }, new { @id = "btnCheckOption", @class = "btn-primary", @value = DataIntegrityResx.BtnCheckCap })
+        </div>
+    </div>
+    @Html.Partial("~/Areas/Core/Views/Shared/_ProcessingStatus.cshtml")
+    <input id="Text1" type="text" hidden />
+        @*<div class="container_popUp" id="DataIntPopup" style="display: none;">
+
+            <div id="OptionalFieldsGrid"> </div>
+
+        </div>*@
+
+        <style>
+            /*.k-overlay {
+                background-color: #000 !important;
+                opacity: 0.5 !important;
+            }
+
+            div.k-window {
+                border-radius: 8px !important;
+            }
+
+            .k-window-title {
+                font-size: 14px;
+                font-weight: 700;
+                line-height: 18px;
+            }
+
+            .k-window .k-window-content {
+                background-color: #fff;
+                height: 340px;
+                margin: 20px 20px;
+            }
+            .mt45,mb45 {
+                margin-top: 45px !important;
+            }
+            .btn-sec {
+letter-spacing: normal !important;
+padding: 0px 20px !important;
+float: left !important;
+margin-left: 0;
+}*/
+        </style>
+   
+}
+@section scripts{
+    @Scripts.Render("~/bundles/DataIntegrity")
+}

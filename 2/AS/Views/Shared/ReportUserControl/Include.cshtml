@@ -1,0 +1,30 @@
+﻿@* Copyright (c) 1994-2014 Sage Software, Inc.  All rights reserved. *@
+
+@using Sage.CA.SBS.ERP.Sage300.GL.Models.Enums
+@using GLCommonResx = Sage.CA.SBS.ERP.Sage300.GL.Resources.GLCommonResx
+@using Sage.CA.SBS.ERP.Sage300.Common.Web.HtmlHelperExtension
+@model Sage.CA.SBS.ERP.Sage300.GL.Models.Reports.Include
+
+<div class="fild-content pad_top_1 pad_bot_1">
+    <div class="grid_5 alpha omega">
+        @Html.KoSageCheckBoxFor(model => model.InactiveUi, new { @sagechecked = "Data.Include.InactiveUi" }, new { @id = "chkInclNoAct" })
+        @Html.SageLabelFor(model => model.InactiveUi, new { @class = "mar_rt_1 left" })
+    </div>
+    <div class="grid_4 alpha omega" data-bind="visible:Data.Include.IsQuantityVisible">
+        @Html.KoSageCheckBoxFor(model => model.IncludeQuantityUi, new { @sagechecked = "Data.Include.IncludeQuantityUi" }, new { @id = "chkInclQty" })
+        @Html.SageLabelFor(model => model.IncludeQuantityUi, new { @class = "mar_rt_1 left" })
+    </div>
+    <div class="grid_4 alpha omega">
+        @Html.KoSageCheckBoxFor(model => model.OptionalFieldsUi, new { @sagechecked = "Data.Include.OptionalFieldsUi" }, new { @id = "chkTransOpt" })
+        @Html.SageLabelFor(model => model.OptionalFieldsUi, new { @class = "mar_rt_1 left" })
+    </div>
+    <div class="clear-fix"></div>
+    <div class="grid_5 alpha omega">
+        @Html.KoSageCheckBoxFor(model => model.BalNetChanges, new { @sagechecked = "Data.Include.BalNetChanges" }, new { @id = "chkInclBal" })
+        @Html.SageLabelFor(model => model.BalNetChanges, new { @class = "mar_rt_1 left" })
+    </div>
+    <div class="grid_5 alpha omega">
+        @Html.KoSageCheckBoxFor(model => model.IncludeChangeUi, new { @sagechecked = "Data.Include.IncludeChangeUi", @sagedisable = "Data.Include.IsIncludeChangeDisable" }, new { @id = "chkInclPSeq" })
+        @Html.SageLabelFor(model => model.IncludeChangeUi, new { @class = "mar_rt_1 left" })
+    </div>
+</div>

@@ -1,0 +1,40 @@
+﻿@* Copyright (c) 1994-2014 Sage Software, Inc.  All rights reserved. *@
+
+@using Sage.CA.SBS.ERP.Sage300.GL.Models.Enums
+@using GLCommonResx = Sage.CA.SBS.ERP.Sage300.GL.Resources.GLCommonResx
+@using CommonResx = Sage.CA.SBS.ERP.Sage300.Common.Resources.CommonResx
+@using TransactionsListingResx = Sage.CA.SBS.ERP.Sage300.GL.Resources.Reports.TransactionsListingResx
+@using Sage.CA.SBS.ERP.Sage300.Common.Web.HtmlHelperExtension
+@model Sage.CA.SBS.ERP.Sage300.GL.Models.Reports.SortAccountGroup
+
+<div class="fild-title">
+    @Html.KoSageLabelFor(m => m.FromGroupId, "", new { @text = "Data.SortCodeAccountGroup.AcctSortedGroupCaption" }, new { @text = GLCommonResx.AccountGroup })
+</div>
+<div class="fild-content pad_top_1 pad_bot_0">
+    <div class="grid_3 alpha omega">
+        @Html.SageLabel(CommonResx.From)
+        @Html.KoSageTextBoxFor(model => model.FromGroupId, new { @value = "Data.SortCodeAccountGroup.FromGroupId" }, new { @maxlength = "12", @class = "txt-upper", @formatTextbox = "alphaNumeric" })
+    </div>
+    <div class="grid_1 alpha mar_top_2 pad_top_2 omega textCenterAlign" data-bind="visible:Data.SortCodeAccountGroup.IsAccountGroupSortCodeVisible">
+        -
+    </div>
+    <div class="grid_3 alpha omega pad_top_2 mar_t08" data-bind="visible:Data.SortCodeAccountGroup.IsAccountGroupSortCodeVisible">
+        @Html.KoSageTextBoxFor(model => model.FromSortId, new { @value = "Data.SortCodeAccountGroup.FromSortId" }, new { @maxlength = "12", @class = "txt-upper", @formatTextbox = "alphaNumeric" })
+    </div>
+    <div class="grid_1 alpha pad_top_2">
+        @Html.SageButton("Search", new { @id = "btnFromAccountGroup", @value = "AccountGroup", @class = "icon btn_search" })
+    </div>
+    <div class="grid_3 push_0 alpha">
+        @Html.SageLabel(CommonResx.To)
+        @Html.KoSageTextBoxFor(model => model.ToGroupId, new { @value = "Data.SortCodeAccountGroup.ToGroupId" }, new { @maxlength = "12", @class = "txt-upper", @formatTextbox = "alphaNumeric" })
+    </div>
+    <div class="grid_1 mar_top_2 pad_top_2 omega textCenterAlign" data-bind="visible:Data.SortCodeAccountGroup.IsAccountGroupSortCodeVisible">
+        -
+    </div>
+    <div class="grid_3 omega alpha pad_top_2 mar_t08" data-bind="visible:Data.SortCodeAccountGroup.IsAccountGroupSortCodeVisible">
+        @Html.KoSageTextBoxFor(model => model.ToSortId, new { @value = "Data.SortCodeAccountGroup.ToSortId" }, new { @maxlength = "12", @class = "txt-upper", @formatTextbox = "alphaNumeric" })
+    </div>
+    <div class="grid_1 alpha pad_top_2">
+        @Html.SageButton("Search", new { @id = "btnToAccountGroup", @value = "AccountGroup", @class = "icon btn_search" })
+    </div>
+</div>

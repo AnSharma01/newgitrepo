@@ -1,0 +1,28 @@
+﻿@* Copyright (c) 1994-2014 Sage Software, Inc.  All rights reserved. *@
+
+@using Sage.CA.SBS.ERP.Sage300.GL.Models.Enums
+@using GLCommonResx = Sage.CA.SBS.ERP.Sage300.GL.Resources.GLCommonResx
+@using CommonResx = Sage.CA.SBS.ERP.Sage300.Common.Resources.CommonResx
+@using Sage.CA.SBS.ERP.Sage300.Common.Web.HtmlHelperExtension
+@model Sage.CA.SBS.ERP.Sage300.GL.Models.Reports.Segment
+
+
+<div data-bind="visible:Data.Segment.IsAccountSectionVisible">
+    <div class="grid_5 alpha pad_top_4" style="margin-right:20px;" data-bind="visible:Data.Segment.IsAccountSegmentVisible">
+        @Html.KoSageDropDownList("Data_Segment", new { @options = "Data.AccountSegment", @value = "Data.Segment.SelectedSegment", @optionsText = "'SegmentDescription'", @optionsValue = "'SegmentNumber'" }, new { @id = "Data_Segment", @class="mar_t08" })
+    </div>
+    <div class="grid_3 alpha omega pad_top_1">
+        @Html.SageLabelFor(model => model.FromAccount)
+        @Html.KoSageTextBoxFor(model => model.FromFormatAccount, new { @value = "Data.Segment.FromFormatAccount" }, new { @placeholder = "", @data_filter = "SegmentCode", @maxlength = 45, @formatTextbox = "alphaNumeric" })
+    </div>
+    <div class="grid_1 alpha pad_top_4">
+        @Html.SageButton("btnFromAccount", new { @id = "btnFromAccount", @class = "icon btn_search" })
+    </div>
+    <div class="grid_3 omega push_0 pad_top_1">
+        @Html.SageLabelFor(model => model.ToAccount)
+        @Html.KoSageTextBoxFor(model => model.ToFormatAccount, new { @value = "Data.Segment.ToFormatAccount" }, new { @placeholder = "", @data_filter = "ToAccountSegment", @maxlength = 45, @formatTextbox = "alphaNumeric" })
+    </div>
+    <div class="grid_1 push_0 alpha pad_top_4">
+        @Html.SageButton("btnToAccount", new { @id = "btnToAccount", @class = "icon btn_search" })
+    </div>
+</div>

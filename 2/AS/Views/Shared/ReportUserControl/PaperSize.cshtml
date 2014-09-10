@@ -1,0 +1,19 @@
+﻿@* Copyright (c) 1994-2014 Sage Software, Inc.  All rights reserved. *@
+
+@using Sage.CA.SBS.ERP.Sage300.GL.Models.Enums
+@using CommonResx = Sage.CA.SBS.ERP.Sage300.Common.Resources.CommonResx
+@using GLCommonResx = Sage.CA.SBS.ERP.Sage300.GL.Resources.GLCommonResx
+@using Sage.CA.SBS.ERP.Sage300.Common.Web.HtmlHelperExtension
+@using TransactionsListingResx = Sage.CA.SBS.ERP.Sage300.GL.Resources.Reports.TransactionsListingResx
+@using Sage.CA.SBS.ERP.Sage300.Common.Models.Enums
+@model Sage.CA.SBS.ERP.Sage300.GL.Models.Reports.PaperSizeType
+
+<div class="fild_set mar_top_2" data-bind="visible:Data.PaperSizeType.IsPaperSizeVisible">
+    <div class="fild-title">@CommonResx.PaperSize</div>
+    <div class="fild-content">
+        @Html.KoSageRadioButtonFor(model => model.PaperSize, (int)PaperSize.Legal, new { @sagechecked = "Data.PaperSizeType.PaperSize" }, new { @id = "optLegal" })
+        @Html.SageLabel(@CommonResx.Legal, new { @class = "mar_rt_2 left" })
+        @Html.KoSageRadioButtonFor(model => model.PaperSize, (int)PaperSize.LetterOrA4, new { @sagechecked = "Data.PaperSizeType.PaperSize" }, new { @id = "optA4" })
+        @Html.SageLabel(@GLCommonResx.LetterA4, new { @class = "mar_rt_2 left" })
+    </div>
+</div>
